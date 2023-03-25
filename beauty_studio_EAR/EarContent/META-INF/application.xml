@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_8.xsd" id="Application_ID" version="8">
+  <display-name>beauty_studio_EAR</display-name>
+  <module>
+    <web>
+      <web-uri>beauty_studio_web.war</web-uri>
+      <context-root>beauty_studio</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>beauty_studio_ejb.jar</ejb>
+  </module>
+</application>
