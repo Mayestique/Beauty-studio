@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"> <ui:composition
+	template="/templates/page-template.xhtml">
+
+	<ui:define name="pageContent">
+		<p:panel toggleable="true">
+			<h:form>
+
+				<h:panelGrid id="grid" columns="6"
+					style="width:100%;margin:50px 0px;text-align: center;"
+					columnClasses="label,value" layout="grid"
+					styleClass="ui-panelgrid-blank">
+
+
+
+
+
+					<h:form id="r" style="width:100%">
+						<div>
+							<h:outputText value="#{txtKalendarz.head}" style="color:#705EB3;font-style: italic;margin:10px 0px;font-weight:bold;font-size:3rem;"/>
+						</div>
+						<h:outputText value="#{txtKalendarz.date}" style="color:#e6e6e6;font-size:1,7em;margin:10px 0px;font-style: italic;"/>
+						<br/>
+						<p:calendar id="checkin" value="#{calendarBB.calendar.date}"
+							required="true" pattern="dd.MM.yyyy HH:mm" mask="true"
+							requiredMessage="#{txtLogin.calcParamRequired}"
+							style="font-size:1,5em; margin:10px 0px;" />
+						<br/>
+						<p:outputLabel for="@next" value="#{txtKalendarz.service}" />
+						<br/>
+						<p:selectOneMenu id="city" value="#{calendarBB.idservice}"
+							effect="fold" editable="true">
+							<f:selectItem itemLabel="#{txtKalendarz.list}" itemValue="0" />
+							<f:selectItems value="#{calendarBB.list}" var="s" itemLabel="#{s.name}" itemValue="#{s.ID_service}"/>
+						</p:selectOneMenu>
+						<br/>
+						<h:commandButton type="submit" value="#{txtKalendarz.visit}"
+							style="margin:5px 0px;font-size: 13px;background-color: #372380;color: white;border-color: white;padding: 15px 22px;text-align: center;text-decoration: none;display: inline-block;"
+							action="#{calendarBB.newService()}" />
+					</h:form>
+
+
+				</h:panelGrid>
+			</h:form>
+		</p:panel>
+	</ui:define>
+</ui:composition> </html>
+

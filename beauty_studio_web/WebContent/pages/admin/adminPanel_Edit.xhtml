@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/page-template.xhtml">
+
+	<ui:define name="pageContent">
+	
+<h:body style="background-color: #eee; margin: 0.5em;">
+
+	<p:panel toggleable="true" header="#{txtAdmin.panel}">
+
+		<h:form rendered="#{adminPanel_UsersEdit.user != null}">
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputLabel for="u-login" value="#{txtAdmin.login}" />
+				<p:inputText id="u-login" value="#{adminPanel_UsersEdit.user.login}"
+					required="true" requiredMessage="#{txtLogin.calcParamRequired}"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="u-login" display="icon"/>
+
+				<h:outputLabel for="u-password" value="#{txtAdmin.password}" />
+				<p:inputText id="u-password" value="#{adminPanel_UsersEdit.user.password}"
+					required="true" requiredMessage="#{txtLogin.calcParamRequired}"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="u-password" display="icon"/>
+
+				<h:outputLabel for="u-name" value="#{txtAdmin.name}" />
+				<p:inputText id="u-name" value="#{adminPanel_UsersEdit.user.name}"
+					required="true" requiredMessage="#{txtLogin.calcParamRequired}"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="u-name" display="icon"/>
+				
+				<h:outputLabel for="u-surname" value="#{txtAdmin.surname}" />
+				<p:inputText id="u-surname" value="#{adminPanel_UsersEdit.user.surname}"
+					required="true" requiredMessage="#{txtLogin.calcParamRequired}"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="u-surname" display="icon"/>
+				
+				<h:outputLabel for="u-gender" value="#{txtAdmin.gender}" />
+				<p:inputText id="u-gender" value="#{adminPanel_UsersEdit.user.gender}"
+					required="true" requiredMessage="#{txtLogin.calcParamRequired}"
+					validatorMessage="co najwyżej 40 znaków">
+					<f:validateLength maximum="40" />
+				</p:inputText>
+				<p:message for="u-gender" display="icon"/>
+				
+			</h:panelGrid>
+
+			<p:messages id="msgs" />
+
+			<p:commandButton value="#{txtAdmin.save}" action="#{adminPanel_UsersEdit.saveData()}"
+				style="margin-right: 1em;" update="@form" />
+
+			<p:button value="#{txtAdmin.cancel}" outcome="adminPanel" />
+		</h:form>
+
+	</p:panel>
+
+</h:body>
+
+</ui:define>
+</ui:composition>
+</html>

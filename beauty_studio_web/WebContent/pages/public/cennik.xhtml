@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/templates/page-template.xhtml">
+	
+		<ui:define name="pageContent">
+	
+			<p:panel header="#{txtCennik.options}" toggleable="true" collapsed="true"
+				style="margin-bottom: 1em;">
+				<h:form>
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel value="#{txtCennik.options2}" />
+						<p:inputText value="#{priceListBB.service}" />
+						<p:commandButton value="#{txtCennik.search}" update="form-table" />
+					</h:panelGrid>
+				</h:form>
+			</p:panel>
+		
+			<p:messages />
+		
+			<h:form id="form-table2" style="margin-bottom:1em;">
+		
+				<p:dataTable value="#{priceListBB.list}" var="p"
+						lazy="true"
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                        paginator="true" rows="4" style="margin-bottom:20px">
+					<p:column priority="5">
+						<f:facet name="header">
+							<h:outputText value="#{txtCennik.service}" />
+						</f:facet>
+						<h:outputText value="#{p.service.name}" />
+					</p:column>
+		
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{txtCennik.price}" />
+						</f:facet>
+						<h:outputText value="#{p.price}" />
+					</p:column>
+		
+				</p:dataTable>
+			</h:form>
+
+		</ui:define>
+	
+	</ui:composition>
+</html>

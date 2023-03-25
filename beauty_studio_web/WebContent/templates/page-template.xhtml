@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main-template.xhtml">
+
+	<ui:define name="title">
+		<center><img id="nails" src="#{resource['template:img/nails.jpg']}" alt="nails" style="width:1000px;" /></center>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form-table" style="margin-bottom:1em;">  
+				    <p:growl id="messages"/>
+				    
+				    <p:tabMenu activeIndex="#{param.i}">
+					    <p:menuitem value="#{txtTemplate.main}" outcome="/pages/public/index" icon="pi pi-star">
+					    </p:menuitem>
+					    <p:menuitem value="#{txtTemplate.offer}" outcome="/pages/public/cennik" icon="pi pi-search">
+					    </p:menuitem>
+					    <p:menuitem value="#{txtTemplate.price}" outcome="/pages/public/cennik" icon="pi pi-file">
+					    </p:menuitem>
+					    <p:menuitem value="#{txtTemplate.contact}" outcome="/pages/public/cennik" icon="pi pi-briefcase">
+					    </p:menuitem>
+					    <p:menuitem rendered="#{remoteClient.isInRole('Administrator') || remoteClient.isInRole('User')}" value="#{txtTemplate.calendar}" outcome="/pages/user/kalendarz" icon="pi pi-user">
+					    </p:menuitem>
+					    <p:menuitem rendered="#{remoteClient.isInRole('Administrator') || remoteClient.isInRole('User')}" value="#{txtTemplate.account}" outcome="/pages/public/cennik" icon="pi pi-user">
+					    </p:menuitem>
+					    <p:menuitem value="#{txtTemplate.login}" outcome="/pages/public/login" icon="pi pi-user">
+					    </p:menuitem>
+					    <p:menuitem value="#{txtTemplate.registration}" outcome="/pages/public/registration" icon="pi pi-user">
+					    </p:menuitem>
+					    <p:menuitem rendered="#{remoteClient.isInRole('Administrator')}" value="#{txtTemplate.admin}" outcome="/pages/admin/adminPanel" icon="pi pi-user">
+					    </p:menuitem>
+					    <p:menuitem rendered="#{remoteClient.isInRole('Administrator') || remoteClient.isInRole('User')}" value="#{txtTemplate.logout}" action="#{loginBB.doLogout()}" icon="pi pi-user">
+						</p:menuitem>
+					</p:tabMenu>
+				    
+				</h:form>
+
+		<ui:insert name="pageContent"></ui:insert>
+
+	</ui:define>
+	
+</ui:composition>
+</html>

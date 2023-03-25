@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.3"
+          xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+
+
+
+	 <application>
+	 	  <resource-bundle>
+			   <base-name>resources.textTemplate</base-name>
+			   <var>txtTemplate</var>
+		  </resource-bundle>
+		  <resource-bundle>
+			   <base-name>resources.textMain</base-name>
+			   <var>txtMain</var>
+		  </resource-bundle>
+		  <resource-bundle>
+			   <base-name>resources.textAdmin</base-name>
+			   <var>txtAdmin</var>
+		  </resource-bundle>
+		  <resource-bundle>
+			   <base-name>resources.textCennik</base-name>
+			   <var>txtCennik</var>
+		  </resource-bundle>
+		  <resource-bundle>
+			   <base-name>resources.textKalendarz</base-name>
+			   <var>txtKalendarz</var>
+		  </resource-bundle>
+		  <resource-bundle>
+			   <base-name>resources.textRegistry</base-name>
+			   <var>txtRegistry</var>
+		  </resource-bundle>
+		  <resource-bundle>
+			   <base-name>resources.textLogin</base-name>
+			   <var>txtLogin</var>
+		  </resource-bundle>
+		  <locale-config>
+			   <default-locale>en</default-locale>
+			  </locale-config>
+	 </application>
+</faces-config>
